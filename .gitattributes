@@ -1,0 +1,26 @@
+# Normalize line endings: LF in the repo and in every working copy
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binary assets: never touch line endings or diff as text
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.icns binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.pdf  binary
+*.zip  binary
+
+# Lockfiles: treat as generated, skip noisy diffs
+pnpm-lock.yaml -diff linguist-generated
+src-tauri/Cargo.lock -diff linguist-generated
